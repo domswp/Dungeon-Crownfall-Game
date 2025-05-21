@@ -75,12 +75,12 @@ go build -o crownfall
 ## Notes
 
 Game ini masil dalam tahap awal, mungkin akan menemukan beberapa monster tetapi tidak spawn lagi, atau spawnnya terlalu random, tapi hal ini menjadi notice kedepannya
-maaf kalau development gamenya terkesan lambat karena, memang banyak kesibukan diluar kerjaan dan ini hanyalah proyek iseng dari saya, class yang tersedia juga masih
-sekedar pajangan saja, belum ada pendetailan lebih lanjut
+maaf kalau development gamenya terkesan lambat, karena memang banyak kesibukan diluar kerjaan dan ini hanyalah proyek iseng dari saya, class yang tersedia juga masih
+sekedar pajangan saja, belum ada pendetailan lebih lanjut (skillnya cuman gebuk gebuk doang wkwkwkw)
 
 ## Contribution
 
-jika memang ingin membantu dalam menambahkan fitur ataupun memperbaiki bug yang ada boleh saja PR ide, apappun di terima kok
+jika memang ingin membantu dalam menambahkan fitur, memperbaiki bug, atau ada ide fitur apappun di terima kok
 
 ## Lisensi
 MIT License © 2025 Domas Wiladatu
