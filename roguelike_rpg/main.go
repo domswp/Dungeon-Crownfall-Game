@@ -56,35 +56,59 @@ func main() {
 				     if player.HP <= 0 {
 					     fmt.Println("Rohmu perlahan menghilang ke dalam kegelapan.. Tamat")
 					     return
-			    }
-			    currentTile.Enemy = nil
-		    }
+				     }
+				     fmt.Printf("\nKamu mendapatkan %d Exp!\n", currentTile.Enemy.ExpReward)
+				     player.Exp += currentTile.Enemy.ExpReward
+				     player.CheckLevelUp()
+				     currentTile.Enemy = nil
+			     }
 		    if len(currentTile.Loot) > 0 {
 			    fmt.Println("Kamu menemukan:")
 			    for _, item := range currentTile.Loot {
-				    fmt.Printf("- %s\n", item.Name, item.Description)
-				    player.Invetory = append(player.Inventory, item)
+				    fmt.Printf("- %s: %s\n", item.Name, item.Description)
+				    player.Inventory = append(player.Inventory, item)
 			    }
 			    currentTile.Loot = nil
-
 		    }
+
+			if currentTile.IsPortal {
+				fmt.Printf("\nKamu berdiri di atas Portal. Lanjutkan ke Lantai %d? (y/n): ", game.CurrentLevel+1)
+				var ans string
+				fmt.Scanln(&ans)
+				if ans == "y" {
+					game.CurrentLevel++
+					player.Position = game.Position{X: 0, Y: 0}
+					game.GenerateDungeon()
+					fmt.Printf("\n--- SELAMAT DATANG DI LANTAI %d ---\n", game.CurrentLevel)
+					continue
+				}
+			}
 
 		   }
 
+		   game.DrawMap(player)
 		   fmt.Println("\nArah gerakanmu? (w = atas, s = bawah, a = kiri, d = kanan, q = keluar): ")
 		   var move string
 		   fmt.Scanln(&move)
 		   switch move {
 		   case "w":
-			   player.Move(0, -1)
+			   if !player.Move(0, -1) {
+				   fmt.Println("Sebuah dinding bata tebal menghalangimu!")
+			   }
 		   case "s":
-			   player.Move(0, 1)
+			   if !player.Move(0, 1) {
+				   fmt.Println("Sebuah dinding bata tebal menghalangimu!")
+			   }
 		   case "a":
-			   player.Move(-1, 0)
+			   if !player.Move(-1, 0) {
+				   fmt.Println("Sebuah dinding bata tebal menghalangimu!")
+			   }
 		   case "d":
-			   player.Move(1, 0)
+			   if !player.Move(1, 0) {
+				   fmt.Println("Sebuah dinding bata tebal menghalangimu!")
+			   }
 		   case "q":
-			   fmt.Println("kau meninggalkan dungeon Crownfall. Sampai Jumpa, pahlawan.")
+			   fmt.Println("Kau meninggalkan dungeon Crownfall. Sampai Jumpa, pahlawan.")
 			   return
 	    	  default:
 			  fmt.Println("Perintah tidak dikenali.")
