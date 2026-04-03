@@ -87,7 +87,7 @@ func main() {
 		   }
 
 		   game.DrawMap(player)
-		   fmt.Println("\nArah gerakanmu? (w = atas, s = bawah, a = kiri, d = kanan, q = keluar): ")
+		   fmt.Println("\nArah gerakanmu? (w/s/a/d = geser, i = minum ramuan, q = keluar): ")
 		   var move string
 		   fmt.Scanln(&move)
 		   switch move {
@@ -107,6 +107,8 @@ func main() {
 			   if !player.Move(1, 0) {
 				   fmt.Println("Sebuah dinding bata tebal menghalangimu!")
 			   }
+		   case "i":
+			   player.UsePotion()
 		   case "q":
 			   fmt.Println("Kau meninggalkan dungeon Crownfall. Sampai Jumpa, pahlawan.")
 			   return

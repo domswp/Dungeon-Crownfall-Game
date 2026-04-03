@@ -8,7 +8,7 @@ func DrawMap(player *Player) {
 	fmt.Println("----------------------------------")
 	fmt.Printf(" 👤 %s si %s (Lvl %d)\n", player.Name, player.Class, player.Level)
 	fmt.Printf(" ❤️  HP: %d/%d   ⭐️ Exp: %d/%d\n", player.HP, player.MaxHP, player.Exp, player.MaxExp)
-	fmt.Printf(" ⚔️  Atk: %d     🛡️  Def: %d\n", player.Atk, player.Def)
+	fmt.Printf(" ⚔️  Atk: %d     🛡️  Def: %d     🌠 MP: %d/%d\n", player.Atk, player.Def, player.MP, player.MaxMP)
 	fmt.Println("==================================")
 	// Y (Baris)
 	for y := player.Position.Y - 2; y <= player.Position.Y + 2; y++ {
